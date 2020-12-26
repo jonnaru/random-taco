@@ -1,12 +1,14 @@
 import React from "react";
-import { RandomTaco } from "./components/RandomTaco";
-import { RandomFullTaco } from "./components/RandomFullTaco";
+import { RandomRecipe } from "./components/RandomRecipe";
+import { RandomFullRecipe } from "./components/RandomFullRecipe";
+import { RandomImage } from "./components/RandomImage";
 
 const App = () => {
   return (
     <>
-      <RandomTaco />
-      <RandomFullTaco />;
+      <RandomRecipe />
+      <RandomFullRecipe />
+      <RandomImage />
     </>
   );
 };

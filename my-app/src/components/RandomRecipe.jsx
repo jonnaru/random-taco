@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import MarkdownView from "react-showdown";
 
-export const RandomTaco = () => {
+export const RandomRecipe = () => {
   const [randomRecipe, setRandomRecipe] = useState(1);
   const URL = `http://taco-randomizer.herokuapp.com/random/`;
 
@@ -19,7 +19,7 @@ export const RandomTaco = () => {
 
   return (
     <main>
-      {/* <MarkdownView markdown={randomRecipe?.base_layer?.recipe} /> */}
+      <MarkdownView markdown={randomRecipe?.base_layer?.recipe} />
     </main>
   );
 };
