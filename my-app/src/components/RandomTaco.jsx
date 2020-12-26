@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import MarkdownView from "react-showdown";
 
 export const RandomTaco = () => {
   const [randomRecipe, setRandomRecipe] = useState(1);
@@ -18,9 +19,7 @@ export const RandomTaco = () => {
 
   return (
     <main>
-      <p>hej</p>
-
-      <h1>{randomRecipe?.base_layer?.name}</h1>
+      <MarkdownView markdown={randomRecipe?.base_layer?.recipe} />
     </main>
   );
 };
