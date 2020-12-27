@@ -9,6 +9,8 @@ const StyledMarkdownView = styled(MarkdownView)`
   }
 `;
 
+const Description = styled.p``;
+
 export const RandomFullRecipe = () => {
   const [randomFullRecipe, setRandomFullRecipe] = useState(1);
   const URL = `http://taco-randomizer.herokuapp.com/random/?full-taco=true`;
@@ -24,9 +26,24 @@ export const RandomFullRecipe = () => {
       });
   }, [URL, setRandomFullRecipe]);
   console.log("randomFullRecipe", randomFullRecipe);
+  console.log(
+    "Olles test",
+    `${randomFullRecipe?.base_layer?.name} with ${randomFullRecipe?.mixin?.name}`
+  );
 
   return (
     <div>
+      <Description>
+        {randomFullRecipe?.base_layer && randomFullRecipe?.base_layer?.name}
+        {randomFullRecipe?.mixin && ` with ${randomFullRecipe?.mixin?.name}`}
+        {randomFullRecipe?.condiment &&
+          ` garnished with ${randomFullRecipe?.condiment?.name}`}
+        {randomFullRecipe?.seasoning &&
+          ` topped with ${randomFullRecipe?.seasoning?.name}`}
+        {randomFullRecipe?.shell &&
+          ` wrapped in ${randomFullRecipe?.shell?.name}`}
+      </Description>
+
       <StyledMarkdownView markdown={randomFullRecipe?.base_layer?.recipe} />
       <MarkdownView markdown={randomFullRecipe?.condiment?.recipe} />
       <MarkdownView markdown={randomFullRecipe?.seasoning?.recipe} />

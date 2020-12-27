@@ -2,9 +2,6 @@ import React from "react";
 
 export const RandomImage = () => {
   return (
-    <div>
-      hello
-      <img src="https://source.unsplash.com/featured/?{taco}" alt="taco" />
-    </div>
+    <img src="https://source.unsplash.com/collection/86477077/" alt="taco" />
   );
 };

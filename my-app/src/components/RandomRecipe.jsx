@@ -19,7 +19,17 @@ export const RandomRecipe = () => {
 
   return (
     <main>
+      <p>
+        {randomRecipe?.base_layer?.name} with {randomRecipe?.condiment?.name}{" "}
+        and {randomRecipe?.mixin?.name} topped with{" "}
+        {randomRecipe?.seasoning?.name} wrapped in {randomRecipe?.shell?.name}
+      </p>
+
       <MarkdownView markdown={randomRecipe?.base_layer?.recipe} />
+      <MarkdownView markdown={randomRecipe?.condiment?.recipe} />
+      <MarkdownView markdown={randomRecipe?.mixin?.recipe} />
+      <MarkdownView markdown={randomRecipe?.seasoning?.recipe} />
+      <MarkdownView markdown={randomRecipe?.shell?.recipe} />
     </main>
   );
 };
