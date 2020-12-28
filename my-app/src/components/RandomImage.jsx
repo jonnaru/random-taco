@@ -3,7 +3,7 @@ import React from "react";
 export const RandomImage = () => {
   return (
     <img
-      src="https://source.unsplash.com/collection/86477077/580x580"
+      src={`https://source.unsplash.com/collection/86477077/580x580?random=${Math.random()}`}
       alt="taco"
     />
   );

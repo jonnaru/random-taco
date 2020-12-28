@@ -7,6 +7,7 @@ import { RandomFullRecipe } from "./components/RandomFullRecipe";
 const App = () => {
   const [getRandomRecipe, setGetRandomRecipe] = useState(false);
   const [getRandomFullRecipe, setGetRandomFullRecipe] = useState(false);
+  const [randomImage, setRandomImage] = useState(false);
 
   return (
     <>
