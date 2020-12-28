@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import MarkdownView from "react-showdown";
 
 import { PageContainer } from "../lib/PageContainer";
+import { RandomImage } from "./RandomImage";
 
-export const RandomRecipe = () => {
+export const RandomRecipe = ({ getRandomRecipe }) => {
   const [randomRecipe, setRandomRecipe] = useState(1);
   const URL = `http://taco-randomizer.herokuapp.com/random/`;
 
@@ -16,7 +17,7 @@ export const RandomRecipe = () => {
         console.log(data);
         setRandomRecipe(data);
       });
-  }, [URL, setRandomRecipe]);
+  }, [URL, setRandomRecipe, getRandomRecipe]);
   console.log(randomRecipe);
 
   return (
@@ -33,6 +34,7 @@ export const RandomRecipe = () => {
         <MarkdownView markdown={randomRecipe?.mixin?.recipe} />
         <MarkdownView markdown={randomRecipe?.seasoning?.recipe} />
         <MarkdownView markdown={randomRecipe?.shell?.recipe} />
+        <RandomImage />
       </main>
     </PageContainer>
   );

@@ -1,18 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Header } from "./components/Header";
 import { Banner } from "./components/Banner";
 import { RandomRecipe } from "./components/RandomRecipe";
-// import { RandomFullRecipe } from "./components/RandomFullRecipe";
-import { RandomImage } from "./components/RandomImage";
+import { RandomFullRecipe } from "./components/RandomFullRecipe";
 
 const App = () => {
+  const [getRandomRecipe, setGetRandomRecipe] = useState(false);
+  const [getRandomFullRecipe, setGetRandomFullRecipe] = useState(false);
+
   return (
     <>
-      <Header />
+      <Header
+        setGetRandomRecipe={setGetRandomRecipe}
+        setGetRandomFullRecipe={setGetRandomFullRecipe}
+      />
       <Banner />
-      {/* <RandomFullRecipe /> */}
-      <RandomRecipe />
-      <RandomImage />
+      <RandomFullRecipe getRandomFullRecipe={getRandomFullRecipe} />
+      <RandomRecipe getRandomRecipe={getRandomRecipe} />
     </>
   );
 };

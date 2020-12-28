@@ -3,8 +3,8 @@ import styled from "styled-components/macro";
 
 const StyledButton = styled.button`
   border: 1px solid #000;
-  background: #000;
-  color: #fff;
+  background: ${(props) => (props.light ? "#fff" : "#000")};
+  color: ${(props) => (props.light ? "#000" : "#fff")};
   padding: 8px 16px;
   border-radius: 3px;
 
@@ -14,8 +14,8 @@ const StyledButton = styled.button`
   cursor: pointer;
 
   &:hover {
-    background: #fff;
-    color: #000;
+    background: ${(props) => (props.light ? "#000" : "#fff")};
+    color: ${(props) => (props.light ? "#fff" : "#000")};
     border-color: #000;
   }
   &:focus {
@@ -23,6 +23,10 @@ const StyledButton = styled.button`
   }
 `;
 
-export const PrimaryButton = ({ title }) => {
-  return <StyledButton>{title}</StyledButton>;
+export const PrimaryButton = ({ title, light, onClick }) => {
+  return (
+    <StyledButton light={light} onClick={onClick}>
+      {title}
+    </StyledButton>
+  );
 };

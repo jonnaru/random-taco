@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import MarkdownView from "react-showdown";
 import styled from "styled-components/macro";
 
+import { RandomImage } from "./RandomImage";
+
 const StyledMarkdownView = styled(MarkdownView)`
   color: blue;
   & li {
@@ -11,7 +13,7 @@ const StyledMarkdownView = styled(MarkdownView)`
 
 const Description = styled.p``;
 
-export const RandomFullRecipe = () => {
+export const RandomFullRecipe = ({ getRandomFullRecipe }) => {
   const [randomFullRecipe, setRandomFullRecipe] = useState(1);
   const URL = `http://taco-randomizer.herokuapp.com/random/?full-taco=true`;
 
@@ -24,7 +26,7 @@ export const RandomFullRecipe = () => {
         console.log("data", data);
         setRandomFullRecipe(data);
       });
-  }, [URL, setRandomFullRecipe]);
+  }, [URL, setRandomFullRecipe, getRandomFullRecipe]);
   console.log("randomFullRecipe", randomFullRecipe);
   console.log(
     "Olles test",
@@ -49,6 +51,7 @@ export const RandomFullRecipe = () => {
       <MarkdownView markdown={randomFullRecipe?.seasoning?.recipe} />
       <MarkdownView markdown={randomFullRecipe?.mixin?.recipe} />
       <MarkdownView markdown={randomFullRecipe?.shell?.recipe} />
+      <RandomImage />
     </div>
   );
 };

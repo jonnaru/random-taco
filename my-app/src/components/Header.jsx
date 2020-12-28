@@ -28,13 +28,25 @@ const SecondaryButtonText = styled.p`
   margin: 0 0 0 6px;
 `;
 
-export const Header = () => {
+export const Header = ({ setGetRandomRecipe, setGetRandomFullRecipe }) => {
+  const handleOnClick = (toggleFunction) => {
+    toggleFunction((prev) => !prev); // toggler
+    console.log("testing testing");
+  };
+
   return (
     <PageContainer>
       <StyledHeader>
         <HeaderLogo>• Tacorandomizer</HeaderLogo>
-        <PrimaryButton title="Random recipe" />
-        <PrimaryButton title="Random mix" />
+        <PrimaryButton
+          title="Random recipe"
+          light
+          onClick={() => handleOnClick(setGetRandomRecipe)}
+        />
+        <PrimaryButton
+          title="Random mix"
+          onClick={() => handleOnClick(setGetRandomFullRecipe)}
+        />
         <SecondaryButton
           title={<SecondaryButtonText>Like</SecondaryButtonText>}
           icon={<IconHeart />}
