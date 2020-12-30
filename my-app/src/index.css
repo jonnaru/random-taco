@@ -60,6 +60,10 @@
   font-weight: 100;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   font-family: "SpeziaTrial", Arial, Helvetica, sans-serif;

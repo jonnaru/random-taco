@@ -1,8 +1,17 @@
 import React, { useEffect, useState } from "react";
 import MarkdownView from "react-showdown";
 
-import { PageContainer } from "../lib/PageContainer";
 import { RandomImage } from "./RandomImage";
+import { IconButtons } from "./IconButtons";
+import { Category } from "./Category";
+import { HomePageLink } from "./HomePageLink";
+
+import { Heading } from "../lib/styling/Heading";
+import { PageContainer } from "../lib/styling/PageContainer";
+import { RecipeDescription } from "../lib/styling/RecipeDescription";
+import { TopContainer } from "../lib/styling/TopContainer";
+import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
+import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
 
 export const RandomRecipe = ({ getNewRecipe }) => {
   const [randomRecipe, setRandomRecipe] = useState(1);
@@ -23,18 +32,26 @@ export const RandomRecipe = ({ getNewRecipe }) => {
   return (
     <PageContainer>
       <main>
-        <section>
-          <h1>Random Mix Recipe</h1>
-          <div>
-            <p>
-              {randomRecipe?.base_layer?.name} with{" "}
-              {randomRecipe?.condiment?.name} and {randomRecipe?.mixin?.name}{" "}
-              topped with {randomRecipe?.seasoning?.name} wrapped in{" "}
-              {randomRecipe?.shell?.name}
-            </p>
-          </div>
+        <TopContainer>
+          <LeftTopContainer>
+            <Heading>Random Mix</Heading>
+            <RecipeDescriptionContainer>
+              <RecipeDescription>
+                {randomRecipe?.base_layer?.name} with{" "}
+                {randomRecipe?.condiment?.name} garnished with{" "}
+                {randomRecipe?.mixin?.name} topped off with{" "}
+                {randomRecipe?.seasoning?.name} and wrapped in{" "}
+                {randomRecipe?.shell?.name}
+              </RecipeDescription>
+            </RecipeDescriptionContainer>
+
+            <HomePageLink />
+            <Category />
+            <IconButtons />
+          </LeftTopContainer>
           <RandomImage />
-        </section>
+        </TopContainer>
+
         <section>
           <MarkdownView markdown={randomRecipe?.base_layer?.recipe} />
           <MarkdownView markdown={randomRecipe?.condiment?.recipe} />

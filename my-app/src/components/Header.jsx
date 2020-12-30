@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 import { PrimaryButton } from "../lib/PrimaryButton";
 import { HamburgerMenu } from "../lib/HamburgerMenu";
-import { PageContainer } from "../lib/PageContainer";
+import { PageContainer } from "../lib/styling/PageContainer";
 
 const StyledHeader = styled.header`
   display: flex;

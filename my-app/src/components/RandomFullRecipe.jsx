@@ -3,38 +3,22 @@ import MarkdownView from "react-showdown";
 import styled from "styled-components/macro";
 
 import { RandomImage } from "./RandomImage";
-import { PageContainer } from "../lib/PageContainer";
 import { IconButtons } from "./IconButtons";
 import { Category } from "./Category";
-import { Heading } from "./Heading";
 import { HomePageLink } from "./HomePageLink";
+
+import { Heading } from "../lib/styling/Heading";
+import { PageContainer } from "../lib/styling/PageContainer";
+import { RecipeDescription } from "../lib/styling/RecipeDescription";
+import { TopContainer } from "../lib/styling/TopContainer";
+import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
+import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
 
 const StyledMarkdownView = styled(MarkdownView)`
   color: blue;
   & li {
     color: red;
   }
-`;
-
-const RecipeDescription = styled.p`
-  margin: 0;
-  font-size: 32px;
-  line-height: 40px;
-  font-weight: 400;
-`;
-
-const TopContainer = styled.section`
-  display: flex;
-  justify-content: space-between;
-  padding: 60px 0px;
-`;
-
-const LeftTopContainer = styled.div`
-  padding-right: 60px;
-`;
-
-const RecipeDescriptionContainer = styled.div`
-  margin-bottom: 16px;
 `;
 
 export const RandomFullRecipe = ({ getNewRecipe }) => {
@@ -68,14 +52,14 @@ export const RandomFullRecipe = ({ getNewRecipe }) => {
                 {randomFullRecipe?.condiment &&
                   ` garnished with ${randomFullRecipe?.condiment?.name}`}
                 {randomFullRecipe?.seasoning &&
-                  ` topped with ${randomFullRecipe?.seasoning?.name}`}
+                  ` topped off with ${randomFullRecipe?.seasoning?.name}`}
                 {randomFullRecipe?.shell &&
-                  ` wrapped in ${randomFullRecipe?.shell?.name}`}
+                  ` and wrapped in ${randomFullRecipe?.shell?.name}`}
               </RecipeDescription>
             </RecipeDescriptionContainer>
+
             <HomePageLink />
             <Category />
-
             <IconButtons />
           </LeftTopContainer>
           <RandomImage />

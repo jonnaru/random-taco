@@ -10,7 +10,6 @@ const CategoryText = styled.p`
   margin: 0;
   font-size: 14px;
   line-height: 24px;
-  /* font-family: var(--spezia-medium); */
   font-weight: normal;
   color: #666;
 `;
