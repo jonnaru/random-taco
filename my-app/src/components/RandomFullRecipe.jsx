@@ -6,6 +6,8 @@ import { RandomImage } from "./RandomImage";
 import { PageContainer } from "../lib/PageContainer";
 import { IconButtons } from "./IconButtons";
 import { Category } from "./Category";
+import { Heading } from "./Heading";
+import { HomePageLink } from "./HomePageLink";
 
 const StyledMarkdownView = styled(MarkdownView)`
   color: blue;
@@ -15,6 +17,7 @@ const StyledMarkdownView = styled(MarkdownView)`
 `;
 
 const RecipeDescription = styled.p`
+  margin: 0;
   font-size: 32px;
   line-height: 40px;
   font-weight: 400;
@@ -22,6 +25,16 @@ const RecipeDescription = styled.p`
 
 const TopContainer = styled.section`
   display: flex;
+  justify-content: space-between;
+  padding: 60px 0px;
+`;
+
+const LeftTopContainer = styled.div`
+  padding-right: 60px;
+`;
+
+const RecipeDescriptionContainer = styled.div`
+  margin-bottom: 16px;
 `;
 
 export const RandomFullRecipe = ({ getNewRecipe }) => {
@@ -39,32 +52,32 @@ export const RandomFullRecipe = ({ getNewRecipe }) => {
       });
   }, [URL, setRandomFullRecipe, getNewRecipe]);
   console.log("randomFullRecipe", randomFullRecipe);
-  console.log(
-    "Olles test",
-    `${randomFullRecipe?.base_layer?.name} with ${randomFullRecipe?.mixin?.name}`
-  );
 
   return (
     <PageContainer>
       <main>
         <TopContainer>
-          <div>
-            <h1>Random Full Recipe</h1>
-            <RecipeDescription>
-              {randomFullRecipe?.base_layer &&
-                randomFullRecipe?.base_layer?.name}
-              {randomFullRecipe?.mixin &&
-                ` with ${randomFullRecipe?.mixin?.name}`}
-              {randomFullRecipe?.condiment &&
-                ` garnished with ${randomFullRecipe?.condiment?.name}`}
-              {randomFullRecipe?.seasoning &&
-                ` topped with ${randomFullRecipe?.seasoning?.name}`}
-              {randomFullRecipe?.shell &&
-                ` wrapped in ${randomFullRecipe?.shell?.name}`}
-            </RecipeDescription>
+          <LeftTopContainer>
+            <Heading>Random Recipe</Heading>
+            <RecipeDescriptionContainer>
+              <RecipeDescription>
+                {randomFullRecipe?.base_layer &&
+                  randomFullRecipe?.base_layer?.name}
+                {randomFullRecipe?.mixin &&
+                  ` with ${randomFullRecipe?.mixin?.name}`}
+                {randomFullRecipe?.condiment &&
+                  ` garnished with ${randomFullRecipe?.condiment?.name}`}
+                {randomFullRecipe?.seasoning &&
+                  ` topped with ${randomFullRecipe?.seasoning?.name}`}
+                {randomFullRecipe?.shell &&
+                  ` wrapped in ${randomFullRecipe?.shell?.name}`}
+              </RecipeDescription>
+            </RecipeDescriptionContainer>
+            <HomePageLink />
             <Category />
+
             <IconButtons />
-          </div>
+          </LeftTopContainer>
           <RandomImage />
         </TopContainer>
 

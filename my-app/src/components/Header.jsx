@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import { PrimaryButton } from "../lib/PrimaryButton";
-
+import { HamburgerMenu } from "../lib/HamburgerMenu";
 import { PageContainer } from "../lib/PageContainer";
 
 const StyledHeader = styled.header`
   display: flex;
   align-items: center;
+  justify-content: space-between;
   height: 72px;
 `;
 
@@ -18,6 +19,11 @@ const HeaderLogo = styled.p`
   letter-spacing: 4px;
   font-weight: 600;
   text-transform: uppercase;
+`;
+
+const ButtonsContainer = styled.div`
+  display: flex;
+  align-items: center;
 `;
 
 export const Header = ({ setShowFullRecipe, setGetNewRecipe }) => {
@@ -32,15 +38,18 @@ export const Header = ({ setShowFullRecipe, setGetNewRecipe }) => {
       <StyledHeader>
         <HeaderLogo>• Tacorandomizer</HeaderLogo>
 
-        <PrimaryButton
-          title="Random recipe"
-          light
-          onClick={() => handleOnClick(true)} // on
-        />
-        <PrimaryButton
-          title="Random mix"
-          onClick={() => handleOnClick(false)} // off
-        />
+        <ButtonsContainer>
+          <PrimaryButton
+            title="Random recipe"
+            light
+            onClick={() => handleOnClick(true)} // on
+          />
+          <PrimaryButton
+            title="Random mix"
+            onClick={() => handleOnClick(false)} // off
+          />
+          <HamburgerMenu />
+        </ButtonsContainer>
       </StyledHeader>
     </PageContainer>
   );

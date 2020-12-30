@@ -1,16 +1,45 @@
 import React from "react";
+import styled from "styled-components/macro";
+
+const CategoryContainer = styled.div`
+  margin-bottom: 22px;
+  break-inside: avoid;
+`;
+
+const CategoryText = styled.p`
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  /* font-family: var(--spezia-medium); */
+  font-weight: normal;
+  color: #666;
+`;
+
+const InfoText = styled.p`
+  margin: 0;
+  font-size: 20px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #333;
+`;
 
 export const Category = () => {
   return (
-    <div>
-      <p>Type</p>
-      <p>Dinner, easy meal</p>
+    <>
+      <CategoryContainer>
+        <CategoryText>Type</CategoryText>
+        <InfoText>Dinner, easy meal</InfoText>
+      </CategoryContainer>
 
-      <p>Suitable for</p>
-      <p>Weekends</p>
+      <CategoryContainer>
+        <CategoryText>Suitable for</CategoryText>
+        <InfoText>Weekends</InfoText>
+      </CategoryContainer>
 
-      <p>Details</p>
-      <p>Yummy </p>
-    </div>
+      <CategoryContainer>
+        <CategoryText>Details</CategoryText>
+        <InfoText>Yummy</InfoText>
+      </CategoryContainer>
+    </>
   );
 };
