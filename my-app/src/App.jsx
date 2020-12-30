@@ -5,19 +5,22 @@ import { RandomRecipe } from "./components/RandomRecipe";
 import { RandomFullRecipe } from "./components/RandomFullRecipe";
 
 const App = () => {
-  const [getRandomRecipe, setGetRandomRecipe] = useState(false);
-  const [getRandomFullRecipe, setGetRandomFullRecipe] = useState(false);
-  const [randomImage, setRandomImage] = useState(false);
+  const [getNewRecipe, setGetNewRecipe] = useState(false);
+  const [showFullRecipe, setShowFullRecipe] = useState(true);
 
   return (
     <>
       <Header
-        setGetRandomRecipe={setGetRandomRecipe}
-        setGetRandomFullRecipe={setGetRandomFullRecipe}
+        setGetNewRecipe={setGetNewRecipe}
+        setShowFullRecipe={setShowFullRecipe}
       />
       <Banner />
-      <RandomFullRecipe getRandomFullRecipe={getRandomFullRecipe} />
-      <RandomRecipe getRandomRecipe={getRandomRecipe} />
+
+      {showFullRecipe ? (
+        <RandomFullRecipe getNewRecipe={getNewRecipe} />
+      ) : (
+        <RandomRecipe getNewRecipe={getNewRecipe} />
+      )}
     </>
   );
 };

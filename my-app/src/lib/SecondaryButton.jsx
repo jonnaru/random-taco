@@ -8,7 +8,8 @@ const StyledButton = styled.button`
   background: #fff;
   padding: 9px 16px;
   border-radius: 8px;
-  min-height: 44px;
+  height: 44px;
+  margin-right: ${(props) => (props.small ? "12px;" : "0")};
 
   font-family: "SpeziaTrial";
   font-weight: 600;
@@ -23,11 +24,20 @@ const StyledButton = styled.button`
   }
 `;
 
-export const SecondaryButton = ({ title, icon }) => {
+const Title = styled.span`
+  margin: 0 8px;
+`;
+
+const Number = styled.span`
+  font-weight: 300;
+`;
+
+export const SecondaryButton = ({ title, icon, number, small }) => {
   return (
-    <StyledButton>
+    <StyledButton small={small}>
       {icon}
-      {title}
+      {title && <Title>{title}</Title>}
+      {number && <Number>{number}</Number>}
     </StyledButton>
   );
 };

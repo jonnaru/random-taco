@@ -2,11 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import { PrimaryButton } from "../lib/PrimaryButton";
-import { SecondaryButton } from "../lib/SecondaryButton";
-import { IconHeart } from "../lib/IconHeart";
-import { IconEaten } from "../lib/IconEaten";
-import { IconWantToEat } from "../lib/IconWantToEat";
-import { IconAddRecipe } from "../lib/IconAddRecipe";
+
 import { PageContainer } from "../lib/PageContainer";
 
 const StyledHeader = styled.header`
@@ -24,36 +20,27 @@ const HeaderLogo = styled.p`
   text-transform: uppercase;
 `;
 
-const SecondaryButtonText = styled.p`
-  margin: 0 0 0 6px;
-`;
-
-export const Header = ({ setGetRandomRecipe, setGetRandomFullRecipe }) => {
-  const handleOnClick = (toggleFunction) => {
-    toggleFunction((prev) => !prev); // toggler
-    console.log("testing testing");
+export const Header = ({ setShowFullRecipe, setGetNewRecipe }) => {
+  const handleOnClick = (fullRecipe) => {
+    setGetNewRecipe((prev) => !prev); // toggler
+    setShowFullRecipe(fullRecipe);
+    console.log("fullRecipe", fullRecipe);
   };
 
   return (
     <PageContainer>
       <StyledHeader>
         <HeaderLogo>• Tacorandomizer</HeaderLogo>
+
         <PrimaryButton
           title="Random recipe"
           light
-          onClick={() => handleOnClick(setGetRandomRecipe)}
+          onClick={() => handleOnClick(true)} // on
         />
         <PrimaryButton
           title="Random mix"
-          onClick={() => handleOnClick(setGetRandomFullRecipe)}
+          onClick={() => handleOnClick(false)} // off
         />
-        <SecondaryButton
-          title={<SecondaryButtonText>Like</SecondaryButtonText>}
-          icon={<IconHeart />}
-        />
-        <SecondaryButton icon={<IconEaten />} />
-        <SecondaryButton icon={<IconWantToEat />} />
-        <SecondaryButton icon={<IconAddRecipe />} />
       </StyledHeader>
     </PageContainer>
   );
