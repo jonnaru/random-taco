@@ -17,7 +17,7 @@ import { StyledMarkdownView } from "./styling/StyledMarkdownView";
 
 export const RandomFullRecipe = ({ getNewRecipe }) => {
   const [randomFullRecipe, setRandomFullRecipe] = useState();
-  const URL = `http://taco-randomizer.herokuapp.com/random/?full-taco=true`;
+  const URL = `https://taco-randomizer.herokuapp.com/random/?full-taco=true`;
 
   useEffect(() => {
     fetch(URL)
