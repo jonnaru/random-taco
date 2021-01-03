@@ -41,11 +41,18 @@ export const RandomRecipe = ({ getNewRecipe }) => {
             <Heading>Random Mix</Heading>
             <RecipeDescriptionContainer>
               <RecipeDescription>
-                {randomRecipe?.base_layer?.name} with{" "}
-                {randomRecipe?.condiment?.name} garnished with{" "}
-                {randomRecipe?.mixin?.name} topped off with{" "}
-                {randomRecipe?.seasoning?.name} and wrapped in{" "}
-                {randomRecipe?.shell?.name}
+                {randomRecipe?.base_layer?.name}
+
+                {randomRecipe?.mixin && ` with ${randomRecipe?.mixin?.name}`}
+
+                {randomRecipe?.condiment &&
+                  ` garnished with ${randomRecipe?.condiment?.name}`}
+
+                {randomRecipe?.seasoning &&
+                  ` topped off with ${randomRecipe?.seasoning?.name}`}
+
+                {randomRecipe?.shell &&
+                  ` and wrapped in ${randomRecipe?.shell?.name}`}
               </RecipeDescription>
             </RecipeDescriptionContainer>
 

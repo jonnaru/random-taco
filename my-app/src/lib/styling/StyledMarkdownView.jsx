@@ -13,7 +13,7 @@ export const StyledMarkdownView = styled(MarkdownView)`
     line-height: 40px;
     color: #333;
     font-weight: 600;
-    text-transform: uppercase;
+    text-transform: capitalize;
   }
 
   & h2 {

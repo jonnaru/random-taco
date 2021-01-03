@@ -1,7 +1,6 @@
 import React from "react";
 
 import { makeStyles } from "@material-ui/core/styles";
-
 import Tooltip from "@material-ui/core/Tooltip";
 
 const useStylesBootstrap = makeStyles((theme) => ({
@@ -19,12 +18,10 @@ function BootstrapTooltip(props) {
   return <Tooltip arrow classes={classes} {...props} />;
 }
 
-export const ToolTip = () => {
+export const ToolTip = (props) => {
   return (
-    <div>
-      <BootstrapTooltip title="Add" placement="top">
-        Bootstrap
-      </BootstrapTooltip>
-    </div>
+    <BootstrapTooltip title={props.title} placement="top">
+      {props.children}
+    </BootstrapTooltip>
   );
 };

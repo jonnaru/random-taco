@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { ToolTip } from "../lib/ToolTip";
 
 const StyledButton = styled.button`
   display: flex;
@@ -32,12 +33,14 @@ const Number = styled.span`
   font-weight: 300;
 `;
 
-export const SecondaryButton = ({ title, icon, number, small }) => {
+export const SecondaryButton = ({ title, icon, number, tooltip, small }) => {
   return (
-    <StyledButton small={small}>
-      {icon}
-      {title && <Title>{title}</Title>}
-      {number && <Number>{number}</Number>}
-    </StyledButton>
+    <ToolTip title={tooltip}>
+      <StyledButton small={small}>
+        {icon}
+        {title && <Title>{title}</Title>}
+        {number && <Number>{number}</Number>}
+      </StyledButton>
+    </ToolTip>
   );
 };

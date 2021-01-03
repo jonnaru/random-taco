@@ -28,15 +28,16 @@ export const IconButtons = () => {
     <IconButtonsContainer>
       <LeftButtonContainer>
         <SecondaryButton
+          tooltip="Like me!"
           title="Like"
           icon={<IconHeart />}
           number={Math.floor(Math.random() * 100)}
         />
       </LeftButtonContainer>
       <RightButtonContainer>
-        <SecondaryButton small icon={<IconWantToEat />} />
-        <SecondaryButton small icon={<IconEaten />} />
-        <SecondaryButton small icon={<IconAddRecipe />} />
+        <SecondaryButton small tooltip="Want to eat" icon={<IconWantToEat />} />
+        <SecondaryButton small tooltip="Eaten" icon={<IconEaten />} />
+        <SecondaryButton small tooltip="Add recipe" icon={<IconAddRecipe />} />
       </RightButtonContainer>
     </IconButtonsContainer>
   );
