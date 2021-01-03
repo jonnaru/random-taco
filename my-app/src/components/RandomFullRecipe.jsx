@@ -13,29 +13,64 @@ import { RecipeDescription } from "../lib/styling/RecipeDescription";
 import { TopContainer } from "../lib/styling/TopContainer";
 import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
 import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
+import { BottomContainer } from "../lib/styling/BottomContainer";
+import { RecipeArticle } from "../lib/styling/RecipeArticle";
 
 const StyledMarkdownView = styled(MarkdownView)`
   & p {
-    color: pink;
+    color: #000;
+    font-weight: 400;
+    line-height: 20px;
+    text-transform: capitalize;
   }
 
   & h1 {
-    color: lime;
+    font-size: 32px;
+    line-height: 40px;
+    color: #333;
+    font-weight: 600;
+    text-transform: uppercase;
   }
 
   & h2 {
-    color: green;
+    font-size: 22px;
+    line-height: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
   }
 
   & li {
-    color: red;
+    color: #000;
+
+    & strong {
+      font-weight: normal;
+    }
+  }
+
+  & ul {
+    padding-left: 160px;
+    font-size: 16px;
+    line-height: 28px;
+    padding-bottom: 20px;
+
+    p {
+      font-size: 16px;
+      line-height: 28px;
+    }
+  }
+
+  & li ul {
+    padding-left: 32px;
+    list-style-type: inherit;
   }
 
   & ol {
     list-style: none;
     padding-left: 0;
     & li {
-      padding-bottom: 10px;
+      padding-bottom: 20px;
+      font-weight: 400;
+      line-height: 20px;
     }
     & li::before {
       font-weight: 600;
@@ -79,23 +114,19 @@ const StyledMarkdownView = styled(MarkdownView)`
   }
 
   & strong {
-    color: yellow;
+    font-size: 16;
+    line-height: 28px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+
+  & em {
+    font-style: normal;
   }
 
   & a {
     color: inherit;
   }
-`;
-
-const BottomContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  border-top: 1px solid #e5e5e5;
-  padding: 60px 0px;
-`;
-
-const RecipeArticle = styled.article`
-  width: 50%;
 `;
 
 export const RandomFullRecipe = ({ getNewRecipe }) => {
@@ -153,25 +184,29 @@ export const RandomFullRecipe = ({ getNewRecipe }) => {
 
           {randomFullRecipe?.condiment && (
             <RecipeArticle>
-              <MarkdownView markdown={randomFullRecipe?.condiment?.recipe} />
+              <StyledMarkdownView
+                markdown={randomFullRecipe?.condiment?.recipe}
+              />
             </RecipeArticle>
           )}
 
           {randomFullRecipe?.seasoning && (
             <RecipeArticle>
-              <MarkdownView markdown={randomFullRecipe?.seasoning?.recipe} />
+              <StyledMarkdownView
+                markdown={randomFullRecipe?.seasoning?.recipe}
+              />
             </RecipeArticle>
           )}
 
           {randomFullRecipe?.mixin && (
             <RecipeArticle>
-              <MarkdownView markdown={randomFullRecipe?.mixin?.recipe} />
+              <StyledMarkdownView markdown={randomFullRecipe?.mixin?.recipe} />
             </RecipeArticle>
           )}
 
           {randomFullRecipe?.shell && (
             <RecipeArticle>
-              <MarkdownView markdown={randomFullRecipe?.shell?.recipe} />
+              <StyledMarkdownView markdown={randomFullRecipe?.shell?.recipe} />
             </RecipeArticle>
           )}
         </BottomContainer>
