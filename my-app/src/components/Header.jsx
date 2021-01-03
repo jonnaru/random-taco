@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 import { PrimaryButton } from "../lib/PrimaryButton";
 import { HamburgerMenu } from "../lib/HamburgerMenu";
-import { PageContainer } from "../lib/styling/PageContainer";
+import { PageContainer } from "./styling/PageContainer";
 
 const StyledHeader = styled.header`
   display: flex;
@@ -30,7 +30,6 @@ export const Header = ({ setShowFullRecipe, setGetNewRecipe }) => {
   const handleOnClick = (fullRecipe) => {
     setGetNewRecipe((prev) => !prev); // toggler
     setShowFullRecipe(fullRecipe);
-    console.log("fullRecipe", fullRecipe);
   };
 
   return (

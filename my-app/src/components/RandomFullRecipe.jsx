@@ -5,18 +5,18 @@ import { IconButtons } from "./IconButtons";
 import { Category } from "./Category";
 import { HomePageLink } from "./HomePageLink";
 
-import { Heading } from "../lib/styling/Heading";
-import { PageContainer } from "../lib/styling/PageContainer";
-import { RecipeDescription } from "../lib/styling/RecipeDescription";
-import { TopContainer } from "../lib/styling/TopContainer";
-import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
-import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
-import { BottomContainer } from "../lib/styling/BottomContainer";
-import { RecipeArticle } from "../lib/styling/RecipeArticle";
-import { StyledMarkdownView } from "../lib/styling/StyledMarkdownView";
+import { Heading } from "./styling/Heading";
+import { PageContainer } from "./styling/PageContainer";
+import { RecipeDescription } from "./styling/RecipeDescription";
+import { TopContainer } from "./styling/TopContainer";
+import { RecipeDescriptionContainer } from "./styling/RecipeDescriptionContainer";
+import { LeftTopContainer } from "./styling/LeftTopContainer";
+import { BottomContainer } from "./styling/BottomContainer";
+import { RecipeArticle } from "./styling/RecipeArticle";
+import { StyledMarkdownView } from "./styling/StyledMarkdownView";
 
 export const RandomFullRecipe = ({ getNewRecipe }) => {
-  const [randomFullRecipe, setRandomFullRecipe] = useState(1);
+  const [randomFullRecipe, setRandomFullRecipe] = useState();
   const URL = `http://taco-randomizer.herokuapp.com/random/?full-taco=true`;
 
   useEffect(() => {
@@ -25,11 +25,9 @@ export const RandomFullRecipe = ({ getNewRecipe }) => {
         return res.json();
       })
       .then((data) => {
-        console.log("data", data);
         setRandomFullRecipe(data);
       });
   }, [URL, setRandomFullRecipe, getNewRecipe]);
-  console.log("randomFullRecipe", randomFullRecipe);
 
   return (
     <PageContainer>
@@ -39,16 +37,19 @@ export const RandomFullRecipe = ({ getNewRecipe }) => {
             <Heading>Random Recipe</Heading>
             <RecipeDescriptionContainer>
               <RecipeDescription>
-                {randomFullRecipe?.base_layer &&
-                  randomFullRecipe?.base_layer?.name}
+                {randomFullRecipe?.base_layer?.name}
+
                 {randomFullRecipe?.mixin &&
-                  ` with ${randomFullRecipe?.mixin?.name}`}
+                  ` with ${randomFullRecipe.mixin.name}`}
+
                 {randomFullRecipe?.condiment &&
-                  ` garnished with ${randomFullRecipe?.condiment?.name}`}
+                  ` garnished with ${randomFullRecipe.condiment.name}`}
+
                 {randomFullRecipe?.seasoning &&
-                  ` topped off with ${randomFullRecipe?.seasoning?.name}`}
+                  ` topped off with ${randomFullRecipe.seasoning.name}`}
+
                 {randomFullRecipe?.shell &&
-                  ` and wrapped in ${randomFullRecipe?.shell?.name}`}
+                  ` and wrapped in ${randomFullRecipe.shell.name}`}
               </RecipeDescription>
             </RecipeDescriptionContainer>
 

@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { ToolTip } from "../lib/ToolTip";
+import { ToolTip } from "./ToolTip";
 
 const StyledButton = styled.button`
   display: flex;

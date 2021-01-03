@@ -9,7 +9,7 @@ const Image = styled.img`
 export const RandomImage = () => {
   return (
     <Image
-      src={`https://source.unsplash.com/collection/86477077/580x580?random=${Math.random()}`}
+      src={`https://source.unsplash.com/collection/86477077/580x580?random=${Math.random()}`} // Math.random to reload image
       alt="taco"
     />
   );

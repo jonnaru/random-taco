@@ -1,24 +1,22 @@
 import React, { useEffect, useState } from "react";
-import MarkdownView from "react-showdown";
-import styled from "styled-components/macro";
 
 import { RandomImage } from "./RandomImage";
 import { IconButtons } from "./IconButtons";
 import { Category } from "./Category";
 import { HomePageLink } from "./HomePageLink";
 
-import { Heading } from "../lib/styling/Heading";
-import { PageContainer } from "../lib/styling/PageContainer";
-import { RecipeDescription } from "../lib/styling/RecipeDescription";
-import { TopContainer } from "../lib/styling/TopContainer";
-import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
-import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
-import { BottomContainer } from "../lib/styling/BottomContainer";
-import { RecipeArticle } from "../lib/styling/RecipeArticle";
-import { StyledMarkdownView } from "../lib/styling/StyledMarkdownView";
+import { Heading } from "./styling/Heading";
+import { PageContainer } from "./styling/PageContainer";
+import { RecipeDescription } from "./styling/RecipeDescription";
+import { TopContainer } from "./styling/TopContainer";
+import { RecipeDescriptionContainer } from "./styling/RecipeDescriptionContainer";
+import { LeftTopContainer } from "./styling/LeftTopContainer";
+import { BottomContainer } from "./styling/BottomContainer";
+import { RecipeArticle } from "./styling/RecipeArticle";
+import { StyledMarkdownView } from "./styling/StyledMarkdownView";
 
 export const RandomRecipe = ({ getNewRecipe }) => {
-  const [randomRecipe, setRandomRecipe] = useState(1);
+  const [randomRecipe, setRandomRecipe] = useState();
   const URL = `http://taco-randomizer.herokuapp.com/random/`;
 
   useEffect(() => {
@@ -27,11 +25,9 @@ export const RandomRecipe = ({ getNewRecipe }) => {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
         setRandomRecipe(data);
       });
   }, [URL, setRandomRecipe, getNewRecipe]);
-  console.log(randomRecipe);
 
   return (
     <PageContainer>
@@ -41,18 +37,12 @@ export const RandomRecipe = ({ getNewRecipe }) => {
             <Heading>Random Mix</Heading>
             <RecipeDescriptionContainer>
               <RecipeDescription>
-                {randomRecipe?.base_layer?.name}
-
-                {randomRecipe?.mixin && ` with ${randomRecipe?.mixin?.name}`}
-
-                {randomRecipe?.condiment &&
-                  ` garnished with ${randomRecipe?.condiment?.name}`}
-
-                {randomRecipe?.seasoning &&
-                  ` topped off with ${randomRecipe?.seasoning?.name}`}
-
-                {randomRecipe?.shell &&
-                  ` and wrapped in ${randomRecipe?.shell?.name}`}
+                {randomRecipe &&
+                  `${randomRecipe.base_layer.name} with 
+                  ${randomRecipe.condiment.name} garnished with 
+                  ${randomRecipe.mixin.name} topped off with 
+                  ${randomRecipe.seasoning.name} and wrapped in 
+                  ${randomRecipe.shell.name}`}
               </RecipeDescription>
             </RecipeDescriptionContainer>
 

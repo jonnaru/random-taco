@@ -3,7 +3,6 @@ import styled from "styled-components/macro";
 
 const CategoryContainer = styled.div`
   margin-bottom: 22px;
-  break-inside: avoid;
 `;
 
 const CategoryText = styled.p`

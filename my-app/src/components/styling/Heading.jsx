@@ -1,7 +1,6 @@
-import React from "react";
 import styled from "styled-components/macro";
 
-const RecipeHeading = styled.h1`
+export const Heading = styled.h1`
   margin: 0;
   font-size: 48px;
   line-height: 58px;
@@ -10,7 +9,3 @@ const RecipeHeading = styled.h1`
   margin-bottom: 24px;
   text-transform: uppercase;
 `;
-
-export const Heading = (props) => {
-  return <RecipeHeading>{props.children}</RecipeHeading>;
-};

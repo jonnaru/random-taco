@@ -3,10 +3,6 @@ import styled from "styled-components/macro";
 
 import { IconArrow } from "../lib/IconArrow";
 
-const StyledArrow = styled(IconArrow)`
-  stroke: #fff;
-`;
-
 const StyledBanner = styled.div`
   display: flex;
   justify-content: center;
@@ -21,7 +17,6 @@ const BannerInfo = styled.p`
   color: #fff;
 
   font-family: "SpeziaTrial";
-
   font-size: 14px;
   font-weight: 500;
 `;
@@ -37,7 +32,7 @@ export const Banner = () => {
       <BannerInfo>
         We love taco! <BannerInfoLink>Meet our taco friends</BannerInfoLink>
       </BannerInfo>
-      <StyledArrow />
+      <IconArrow />
     </StyledBanner>
   );
 };
