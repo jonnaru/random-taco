@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import MarkdownView from "react-showdown";
+import styled from "styled-components/macro";
 
 import { RandomImage } from "./RandomImage";
 import { IconButtons } from "./IconButtons";
@@ -12,6 +13,9 @@ import { RecipeDescription } from "../lib/styling/RecipeDescription";
 import { TopContainer } from "../lib/styling/TopContainer";
 import { RecipeDescriptionContainer } from "../lib/styling/RecipeDescriptionContainer";
 import { LeftTopContainer } from "../lib/styling/LeftTopContainer";
+import { BottomContainer } from "../lib/styling/BottomContainer";
+import { RecipeArticle } from "../lib/styling/RecipeArticle";
+import { StyledMarkdownView } from "../lib/styling/StyledMarkdownView";
 
 export const RandomRecipe = ({ getNewRecipe }) => {
   const [randomRecipe, setRandomRecipe] = useState(1);
@@ -52,13 +56,27 @@ export const RandomRecipe = ({ getNewRecipe }) => {
           <RandomImage />
         </TopContainer>
 
-        <section>
-          <MarkdownView markdown={randomRecipe?.base_layer?.recipe} />
-          <MarkdownView markdown={randomRecipe?.condiment?.recipe} />
-          <MarkdownView markdown={randomRecipe?.mixin?.recipe} />
-          <MarkdownView markdown={randomRecipe?.seasoning?.recipe} />
-          <MarkdownView markdown={randomRecipe?.shell?.recipe} />
-        </section>
+        <BottomContainer>
+          <RecipeArticle>
+            <StyledMarkdownView markdown={randomRecipe?.base_layer?.recipe} />
+          </RecipeArticle>
+
+          <RecipeArticle>
+            <StyledMarkdownView markdown={randomRecipe?.condiment?.recipe} />
+          </RecipeArticle>
+
+          <RecipeArticle>
+            <StyledMarkdownView markdown={randomRecipe?.mixin?.recipe} />
+          </RecipeArticle>
+
+          <RecipeArticle>
+            <StyledMarkdownView markdown={randomRecipe?.seasoning?.recipe} />
+          </RecipeArticle>
+
+          <RecipeArticle>
+            <StyledMarkdownView markdown={randomRecipe?.shell?.recipe} />
+          </RecipeArticle>
+        </BottomContainer>
       </main>
     </PageContainer>
   );
